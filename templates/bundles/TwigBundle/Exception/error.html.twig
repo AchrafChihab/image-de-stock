@@ -1,0 +1,36 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% set page_selected = page('404') %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seopage.html.twig' with {'page_selected':page_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher.html.twig' %}
+{% endblock switcher %}
+
+{% block body %}
+
+	<div class="content_introuvable">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-6">
+					<div class="img_introuvable">
+						<img class="img-fluid" src="{{ asset('assets/images/illustration404.png') }}" alt="Image introuvable">
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6">
+					<div class="text_introuvable">
+						<div>
+							<h2>{{'آسف،'|trans}}</h2>
+							<h3>{{'الصفحة التي تبحث عنها غير موجودة.'|trans}}</h3>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

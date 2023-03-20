@@ -1,0 +1,18 @@
+<title>{{article_selected.titre}}</title>
+<meta name="title" content="{{article_selected.seoTitre}}" />
+<meta name="description" content="{{article_selected.seoDescription}}" />
+<meta name="keywords" content="{{article_selected.seoMeta}}" />  
+
+<meta property="og:locale" content="fr_FR"/>
+<meta property="og:site_name" content="https://"/>
+<meta property="og:title" content="{{article_selected.seoTitre}}"/>
+<meta property="og:url" content="{{ absolute_url(path('article_selected',{'slug':article_selected.slug}))}}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="{{article_selected.seoDescription}}"/>
+<meta property="og:image" content="{% if article_selected.image is not empty %}{{ absolute_url(asset(vich_uploader_asset(article_selected,'imageFile')))}}{% endif %}"/> 
+ 
+<meta name="twitter:title" content="{{article_selected.seoTitre}}"/>
+<meta name="twitter:url" content="https://"/>
+<meta name="twitter:description" content="{{article_selected.seoDescription}}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+

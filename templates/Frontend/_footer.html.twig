@@ -1,0 +1,50 @@
+<div class="footer_top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6">
+                <div class="text_footer_top">
+                    <p>
+                        <span>La consultation</span>, c'est aussi la rencontre avec l'un des meilleurs experts en esthétique dentaire.
+                    </p>
+                    <a href="{{ path('contact_link') }}" class="bg_vert">Prendre un rendez-vous</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="logo_footer">
+             <a href="{{ path('homepage') }}">
+                <img class="img-fluid" src="{{ asset('assets/images/logo_footer.png')}}" alt="Logo CBK">
+            </a>
+        </div>
+        <div class="menu_footer">
+            <ul>
+                <li>
+                    <a href="{{ path('page_single',{'category_slug':'a-propos','slug':'docteur-el-belghami-kadiri-chafika'}) }}">
+                        A Propos
+                    </a>
+                </li>
+                <li><a href="{{ path('page_single',{'category_slug':'implants','slug':'autres-systemes-implantaires'}) }}">Implants</a></li>
+                <li><a href="{{ path('page_single',{'category_slug':'dentaires','slug':'indications'}) }}">Dentaires</a></li>
+                <li><a href="{{ path('page_single',{'category_slug':'parodontie','slug':'cas-particuliers'}) }}">Parodontie</a></li>
+                <li>
+                    <a href="{{ path('page_single',{'category_slug':'prestations','slug':'blanchiment-et-esthetique'}) }}">
+                        Prestations
+                    </a>
+                </li>
+                <li><a href="{{ path('articles') }}">Articles</a></li>
+            </ul>
+        </div>
+        <div class="info_footer">
+            <ul>
+                <li><img src="{{ asset('assets/images/gps.png')}}" alt="Localisation">12 Rue de Hassan , Casablanca</li>
+                <li><img src="{{ asset('assets/images/phone-call.png')}}" alt="phone">05 22 36 13 24 / 05 22 36 13 95</li>
+                <li><img src="{{ asset('assets/images/printer.png')}}" alt="printer">05 22 36 17 74</li>
+            </ul>
+        </div>
+    </div>
+</footer>

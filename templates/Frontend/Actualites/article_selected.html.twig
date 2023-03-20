@@ -1,0 +1,19 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seoarticle.html.twig' with {'article_selected':article_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_pages.html.twig' with {'page_selected':page_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+	
+	{% include 'Frontend/Actualites/_chemin_article.html.twig' %}
+
+	{% include 'Frontend/Actualites/_item_article_selected.html.twig' %}
+
+
+{% endblock body %}
+

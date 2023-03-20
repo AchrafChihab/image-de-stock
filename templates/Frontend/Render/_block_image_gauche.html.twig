@@ -1,0 +1,24 @@
+<div class="block_image_gauche block_page {% if block.colorTitre == 'Bleu' %}vert_h3{% else %}bleu_h3{% endif %}" {% if block.background != '#000000' %}style="background:{{block.background}}"{% endif %}>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="img_gauche">
+					<img class="img-fluid" src="{{ asset (vich_uploader_asset(block,'imageFile')) }}" alt="{{block.titre}}">
+				</div>
+			</div>
+			<div class="col-lg-8">
+				{% if block.titre is not empty %}
+					<h2 class="titre_block" style="color:{% if block.colorTitre == 'Bleu' %}#264a67{% else %}#86c424{% endif %}">
+						{% if block.icon is not empty %}
+							<img src="{{ asset (vich_uploader_asset(block,'iconFile')) }}" alt="{{block.titre}}">
+						{% endif %}
+						{{block.titre}}
+					</h2>
+				{% endif %}
+				<div class="content_block">
+					{{block.contenu|raw}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

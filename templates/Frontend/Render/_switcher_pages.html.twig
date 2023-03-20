@@ -1,0 +1,12 @@
+
+<div class="switcher_pages" style="background: url('{% if page_selected.categorie.image is defined and page_selected.categorie.image is not empty %}{{ asset (vich_uploader_asset(page_selected.categorie,'imageFile')) }}{% elseif page_selected.image is not empty %}{{ asset (vich_uploader_asset(page_selected,'imageFile')) }}{% else %}../images/switcher_articles.jpg{% endif %}') no-repeat center;">
+    <div class="container">
+        <div class="titre_switcher_pages">
+        	{% if page_selected.categorie.titre is defined and page_selected.categorie.titre is not empty %}
+            	<h1>{{page_selected.categorie.titre}}</h1>
+            {% else %}
+            	<h1>{{page_selected.titre}}</h1>
+            {% endif %}
+        </div>
+    </div>
+</div>

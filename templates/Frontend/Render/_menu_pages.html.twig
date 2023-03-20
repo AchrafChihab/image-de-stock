@@ -1,0 +1,14 @@
+<div class="menu_pages">
+	<div class="container">
+		<ul>
+			{% set menu_list = sous_menu_list(page_selected.categorie.slug) %}
+            {% for item in menu_list %}
+                <li {% if page_selected.slug == item.slug %}class="selected"{% endif %}>
+                    <a href="{{ path('page_single',{'category_slug':item.categorie.slug,'slug':item.slug}) }}">
+                        {{item}}
+                    </a>
+                </li>
+            {% endfor %}
+		</ul>
+	</div>
+</div>

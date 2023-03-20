@@ -1,0 +1,6 @@
+parameters:
+    nombre_articles: '10'
+    mail_reception: issam@elevenmedia.ma
+    mail_envoie: no-reply@elevenmedia.ma
+twig:
+    globals: { nombre_articles: '10', mail_reception: issam@elevenmedia.ma, mail_envoie: no-reply@elevenmedia.ma }

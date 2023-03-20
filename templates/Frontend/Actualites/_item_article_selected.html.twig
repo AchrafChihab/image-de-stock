@@ -1,0 +1,17 @@
+
+<div class="content_page content_article_selected">
+    <div class="container">
+
+        <div class="text_article">
+			<label>{{article_selected.dateFormat}}</label>
+			<h2>{{article_selected.titre}}</h2>
+            <div class="img_article">
+				{% if article_selected.image is not empty %}
+					<img class="img-fluid" src="{{ asset (vich_uploader_asset(article_selected,'imageFile')) }}" alt="{{article_selected.titre}}">
+				{% endif %}
+            </div>
+            {{article_selected.contenu|raw}}
+        </div>
+    </div>
+
+</div>

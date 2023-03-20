@@ -1,0 +1,50 @@
+{% extends 'Frontend/base.html.twig' %}
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seopage.html.twig' with {'page_selected':page_selected} %}
+{% endblock %}
+
+{% block switcher %}
+	{% include 'Frontend/Render/_switcher_pages.html.twig' with {'page_selected':page_selected} %}
+{% endblock switcher %}
+
+{% block body %}
+
+	<div class="content_page">
+
+		{% include 'Frontend/Render/_menu_pages.html.twig' with {'page_selected':page_selected} %}
+
+		{% if page_selected.slug == 'faq' %}
+			{% include 'Frontend/Render/_list_questions.html.twig' %}
+		{% else %}
+			{{layout_page(page_selected.slug)|raw}}
+		{% endif %}
+
+		{% if page_selected.fichier is not empty %}
+			<div class="container">
+				<div class="link_globale">
+		        	<a href="{{ asset (vich_uploader_asset(page_selected,'fichierFile')) }}" class="bg_vert" target="blank">
+		        		Télcharger au format PDF
+		        	</a>
+				</div>
+			</div>
+		{% endif %}
+
+		{% if page_selected.partager == 1 %}
+			<div class="block_share {% if page_selected.slug == 'cas-cliniques' %}text-center{% endif %}">
+				<div class="container">
+					<label>Partager sur :</label>
+					<ul>
+						<li><a href="#"><img src="/assets/images/facebook.png" alt="facebook"></a></li>
+						<li><a href="#"><img src="/assets/images/instagram.png" alt="instagram"></a></li>
+						<li><a href="#"><img src="/assets/images/pinterest.png" alt="pinterest"></a></li>
+						<li><a href="#"><img src="/assets/images/whatsapp.png" alt="whatsapp"></a></li>
+					</ul>
+				</div>
+			</div>
+		{% endif %}
+
+	</div>
+
+
+{% endblock body %}

@@ -1,0 +1,157 @@
+{% extends 'Frontend/base.html.twig' %} 
+
+{% block seoheader %}
+    {% include 'Frontend/Render/_seopage.html.twig' with {'page_selected':page_selected} %}
+{% endblock %}
+
+{% block switcher %}
+    {% include 'Frontend/Render/_switcher_pages.html.twig' with {'page_selected':page_selected} %}
+{% endblock %} 
+
+
+{% block body %}
+
+	<div class="content_page content_contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+
+					{% for flashMessage in app.session.flashbag.get('notice') %}
+                        <div class="alert alert-success">
+                            <button type="button" class="close_contact" data-bs-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ flashMessage|trans }}
+                        </div>
+                    {% endfor %}
+
+                    {% for flashMessage in app.session.flashbag.get('notice_error') %}
+                        <div class="alert alert-danger">
+                            <button type="button" class="close_contact" data-bs-dismiss="alert">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            {{ flashMessage|trans }}
+                        </div>
+                    {% endfor %}
+
+					<form class="form_contact" id="form_contact" action="{{ path('contact_link') }}" method="POST">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="text_input">
+									{{ form_widget(form.nomcomplet,{'attr':{'placeholder':'Nom complet'}}) }}
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="text_input">
+									{{ form_widget(form.email,{'attr':{'placeholder':'Adresse e-mail'}}) }}
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="text_input">
+									{{ form_widget(form.telephone,{'attr':{'placeholder':'Téléphone'}}) }}
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="text_input">
+									{{ form_widget(form.objet,{'attr':{'placeholder':'Sujet'}}) }}
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="text_input">
+									{{ form_widget(form.message,{'attr':{'placeholder':'Message...'}}) }}
+								</div>
+							</div>
+						</div>
+						<div class="button_submit">
+							<button type="submit" name="submit">Envoyer</button>
+							{{ form_rest(form) }}
+						</div>
+                	</form>
+				</div>
+				<div class="col-lg-4">
+					{#{ render(path('blockstatique',{'slug':'block_contact_right'})) }#}
+			        <div class="info_contact info_footer">
+			            <ul>
+			                <li><img src="{{ asset('assets/images/gps.png')}}" alt="Localisation">12 Rue de Hassan , Casablanca</li>
+			                <li><img src="{{ asset('assets/images/phone-call.png')}}" alt="phone">05 22 36 13 24 / 05 22 36 13 95</li>
+			                <li><img src="{{ asset('assets/images/printer.png')}}" alt="printer">05 22 36 17 74</li>
+			            </ul>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+    <script type="text/javascript">
+
+	    $.validator.addMethod("email", function(value, element) {
+	        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value);
+	    }, "Adresse e-mail non valide: Veuillez entrer une adresse e-mail valide.");
+	    $.validator.addMethod("phone", function(value, element) {
+	        return this.optional(element) || /^[0-9]{10,14}$/i.test(value);
+	    }, "Format invalide. (Exemple: 0611111111)");
+	    //$("#form_telephone").mask("06 00 00 00 00");
+
+
+	    $(document).ready(function(){
+
+	        $("#form_contact").validate({
+        	  errorElement: "samp",
+	          rules: {
+	            "contactpublic[nomcomplet]": {
+	              required: true,
+	              minlength: 3
+	            },
+	            "contactpublic[email]": {
+	              required: true,
+	              email: true
+	            },
+	            "contactpublic[telephone]": {
+	              required: true,
+	              phone: true
+	            },
+	            "contactpublic[objet]": {
+	              required: true
+	            },
+	            "contactpublic[message]":  {
+	              required: true
+	            }
+	          },
+
+	          messages: {
+	            "contactpublic[nomcomplet]": {
+	              required: "Veuillez saisir votre nom complet",
+	              minlength: "Votre nom complet pas correct"
+	            },
+
+	            "contactpublic[email]": {
+	              required: "Veuillez saisir votre email",
+	              email: "Votre email pas correct"
+	            },
+
+	            "contactpublic[telephone]": {
+	              required: "Veuillez saisir votre Téléphone",
+	              phone: "Votre Téléphone pas correct"
+	            },
+	 
+	            "contactpublic[objet]": {
+	              required: "Veuillez saisir votre sujet",
+	            },
+	 
+	            "contactpublic[message]": {
+	              required: "Veuillez saisir votre message",
+	            }
+
+	          }
+
+	        });  
+
+	    });
+	</script>
+ 
+{% endblock body %}

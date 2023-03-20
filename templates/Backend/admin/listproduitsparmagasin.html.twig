@@ -1,0 +1,37 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title  %} Regroupement Article par Reference et Magasin {% endblock  %} 
+
+{% block page_content %} 
+ 
+    <table class="datagrid"> 
+            <thead>
+                <th> Reference</th> 
+                <th> Designation</th> 
+                <th> Quantite</th>
+                <th> fournisseur</th>
+                <th> Magasin</th>
+            </thead>
+        {% for produit in magasin %}
+            <tr>
+                <td>
+                    {{produit.reference}}
+                </td>
+                <td>
+                    {{produit.designation}}
+                </td>
+                <td>
+                    {{produit.qte}} unité
+                </td>
+                <td>
+                    {{produit.fournisseurnom}}
+                </td>
+                <td>
+                    {{produit.nom}}
+                </td>
+                
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

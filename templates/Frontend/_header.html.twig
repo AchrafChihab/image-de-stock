@@ -1,0 +1,95 @@
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-5 col-6">
+                <div class="logo">
+                    <a href="{{ path('homepage') }}">
+                    	<img class="img-fluid" src="{{ asset('assets/images/logo.png')}}" alt="Logo CBK">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-7 col-6">
+                <div class="menu hide_menu">
+                    <ul>
+                        <li class="hover_mobile no_active">
+                            <a href="{{ path('page_single',{'category_slug':'a-propos','slug':'docteur-el-belghami-kadiri-chafika'}) }}">A Propos</a>
+                            <ul class="sous_menu">
+                                {% set menu_list = sous_menu_list('a-propos') %}
+                                {% for item in menu_list %}
+                                    <li>
+                                        <a href="{{ path('page_single',{'category_slug':item.categorie.slug,'slug':item.slug}) }}">
+                                            {{item}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="hover_mobile no_active">
+                            <a href="{{ path('page_single',{'category_slug':'implants','slug':'autres-systemes-implantaires'}) }}">Implants</a>
+                            <ul class="sous_menu">
+                                {% set menu_list = sous_menu_list('implants') %}
+                                {% for item in menu_list %}
+                                    <li>
+                                        <a href="{{ path('page_single',{'category_slug':item.categorie.slug,'slug':item.slug}) }}">
+                                            {{item}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="hover_mobile no_active">
+                            <a href="{{ path('page_single',{'category_slug':'dentaires','slug':'indications'}) }}">Dentaires</a>
+                            <ul class="sous_menu">
+                                {% set menu_list = sous_menu_list('dentaires') %}
+                                {% for item in menu_list %}
+                                    <li>
+                                        <a href="{{ path('page_single',{'category_slug':item.categorie.slug,'slug':item.slug}) }}">
+                                            {{item}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="hover_mobile no_active">
+                            <a href="{{ path('page_single',{'category_slug':'parodontie','slug':'cas-particuliers'}) }}">Parodontie</a>
+                            <ul class="sous_menu">
+                                {% set menu_list = sous_menu_list('parodontie') %}
+                                {% for item in menu_list %}
+                                    <li>
+                                        <a href="{{ path('page_single',{'category_slug':item.categorie.slug,'slug':item.slug}) }}">
+                                            {{item}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li class="hover_mobile no_active">
+                            <a href="{{ path('page_single',{'category_slug':'prestations','slug':'blanchiment-et-esthetique'}) }}">Prestations</a>
+                            <ul class="sous_menu">
+                                {% set menu_list = sous_menu_list('prestations') %}
+                                {% for item in menu_list %}
+                                    <li>
+                                        <a href="{{ path('page_single',{'category_slug':item.categorie.slug,'slug':item.slug}) }}">
+                                            {{item}}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="{{ path('articles') }}">Articles</a></li>
+                        <li class="button_menu_rv">
+                            <a href="{{ path('contact_link') }}">Prendre <span>Rendez-vous</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <button>
+                        <span class="bar"></span>
+                    </button>
+                    <samp>Menu</samp>
+                    <span class="ferme">fermer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

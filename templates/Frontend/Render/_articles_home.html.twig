@@ -1,0 +1,25 @@
+{% if list_actualites is not empty %}
+    <div class="articles_home">
+        <div class="container">
+            <h3 class="titre_articles_home">Articles</h3>
+            <div class="row">
+                
+                {% for actu in list_actualites %}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="item_articles_home">
+                            <a href="{{ path('article_selected',{'slug':actu.slug}) }}">
+                                {% if actu.image is not empty %}
+                                    <img class="img-fluid" src="{{ asset (vich_uploader_asset(actu,'imageFile')) }}" alt="{{actu.titre}}">
+                                {% endif %}
+                            </a>
+                            <label>{{actu.dateFormat}}</label>
+                            <h6><a href="{{ path('article_selected',{'slug':actu.slug}) }}">{{actu.titre}}</a></h6>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

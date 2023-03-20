@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="UTF-8">
+        <meta http-"equiv=X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        {% block seoheader %}
+            {% include 'Frontend/Render/_seoheader.html.twig' %}
+        {% endblock %}
+
+        <meta name="language" content="fr" />
+
+        <link href="{{ asset('assets/images/logo.png')}}" rel="image_src"  />
+        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico')}}" />
+
+ 
+
+     
+        {% block stylesheets %}
+            {% include 'Frontend/Render/_stylesheets.html.twig'%} 
+        {% endblock %}
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+
+        {% block javascripts %}
+            {% include 'Frontend/Render/_javascripts.html.twig'%} 
+        {% endblock %}
+        
+    </head>
+    <body>
+
+        <!--div id="fb-root"></div>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v14.0" nonce="jYVr0DrM"></script-->
+
+
+        {% block header %}
+            {{ render(path('_header')) }}    
+        {% endblock %}
+
+
+        {% block switcher %}{% endblock %}
+
+
+        {% block body %}{% endblock %}
+
+
+          
+
+        {% block footer %}
+            {{ render(path('_footer')) }}  
+        {% endblock %}
+    </body>
+
+
+	<script type="text/javascript" src="{{ asset('assets/js/main.js')}}"></script>
+
+
+
+</html>

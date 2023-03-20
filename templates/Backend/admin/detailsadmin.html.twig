@@ -1,0 +1,54 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title  %} Détail Référence {{reference}}   
+        
+       {% endblock  %} 
+
+{% block page_content %}
+ <a href="{{path('admin_home')}}" class="mb-3 btn btn-default">Retour à la liste </a>
+        
+        <table class="datagrid"> 
+            <thead>
+                <th> Référence</th>
+                <th> Désignation</th> 
+                <th> Magasin</th> 
+                <th> Clients</th> 
+                <th> Fournisseur</th> 
+                <th> Quantite</th> 
+                <th> Nsérie</th>  
+                <th> Nlot</th> 
+            </thead>
+            {# {{ dump(produits.fournisseur.id) }} #}
+        {% for produit in produits %}
+            <tr>
+                <td>
+                    {{produit.reference}}
+                </td>
+                <td>
+                    {{produit.designation}}
+                </td>  
+                <td> 
+                    {{ produit.magasin }}  
+                </td>  
+                <td>
+                    {% for client in produit.clients %}
+                       <a href="" class="btn btn-primary">{{client.nom }}</a>
+                    {% endfor %}
+                </td>  
+                <td> 
+                    <a href="" class="btn btn-primary">{{ produit.fournisseur }}</a> 
+                </td>  
+                <td>
+                    {{produit.qte}}
+                </td>  
+                <td>
+                    {{produit.nserie}}
+                </td>  
+                <td>
+                    {{produit.nlot}}
+                </td>   
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

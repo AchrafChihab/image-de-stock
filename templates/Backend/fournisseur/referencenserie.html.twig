@@ -1,0 +1,42 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block page_title  %} Regroupement Article par Reference et nserie {% endblock  %} 
+
+{% block page_content %}
+ 
+
+    <table class="datagrid"> 
+            <thead>
+                <th> Reference</th>
+                <th> Designation</th>
+                <th> Quantité</th>
+                <th> Magasin</th>
+                <th> Nserie</th>
+                <th> Nlot</th>
+            </thead>
+        {% for produit in nserie %}
+            <tr>
+                <td>
+                    {{produit.reference}}
+                </td>
+                <td>
+                    {{produit.designation}}
+                </td>
+                <td>
+                    {{produit.qte}} unité
+                </td>
+                <td>
+                    {{produit.nom}}
+                </td>
+                <td>
+                    {{produit.nserie}}
+                </td>
+                <td>
+                    {{produit.nlot}}
+                </td>
+                
+            </tr>
+        {% endfor %}
+    </table> 
+
+{% endblock %}

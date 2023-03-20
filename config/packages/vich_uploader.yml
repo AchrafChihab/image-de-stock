@@ -1,0 +1,89 @@
+# config/packages/vich_uploader.yaml
+parameters:
+    dir_upload_file: public
+    app.path.category_image: /uploads/pages 
+    app.path.page_image: /uploads/pages
+    app.path.page_fichier: /uploads/pages/fichiers
+    app.path.switcher_image: /uploads/switchers
+    app.path.actualite_image: /uploads/actualite
+    app.path.image_mediatheque: /uploads/mediatheque
+    app.path.blockpage_image: /uploads/blockpage/images
+    app.path.blockpage_icon: /uploads/blockpage/icons
+    app.path.blockpage_fichier: /uploads/blockpage/fichiers
+    app.path.dentiste_image: /uploads/dentiste
+    app.path.excel_file: /uploads/excel
+    upload_excel_file: '%kernel.project_dir%/%dir_upload_file%/uploads/excel'
+vich_uploader:
+    db_driver: orm
+    mappings:
+        category_image:
+            uri_prefix: /uploads/pages
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/pages'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        page_image:
+            uri_prefix: /uploads/pages
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/pages'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        page_fichier:
+            uri_prefix: /uploads/pages/fichiers
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/pages/fichiers'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        switcher_image:
+            uri_prefix: /uploads/switchers
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/switchers'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        actualite_image:
+            uri_prefix: /uploads/actualite
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/actualite'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        image_mediatheque:
+            uri_prefix: /uploads/mediatheque
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/mediatheque'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        blockpage_image:
+            uri_prefix: /uploads/blockpage/images
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/blockpage/images'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        blockpage_icon:
+            uri_prefix: /uploads/blockpage/icons
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/blockpage/icons'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        blockpage_fichier:
+            uri_prefix: /uploads/blockpage/fichiers
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/blockpage/fichiers'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        dentiste_image:
+            uri_prefix: /uploads/dentiste
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/dentiste'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+        excel_file:
+            uri_prefix: /uploads/excel
+            upload_destination: '%kernel.project_dir%/%dir_upload_file%/uploads/excel'
+            namer: vich_uploader.namer_hash
+            delete_on_remove: true
+            delete_on_update: true
+
+
+            
+    
+     
